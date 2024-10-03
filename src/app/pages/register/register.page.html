@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="register">
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>crear cuenta</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form>
+          <ion-item>
+            <ion-input label="Nombre" label-placement="floating" fill="solid" placeholder="Ingrese su nombre"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="Email" label-placement="floating" fill="solid" placeholder="ingrese su email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="Contraseña" label-placement="floating" fill="solid"placeholder="Ingrese su contraseña" type="password"></ion-input>
+          </ion-item>
+          <ion-button background-color="#dbc0fb" color="black" expand="block" class="login-button" [routerLink]="['/login']">registrarse</ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+</ion-content>

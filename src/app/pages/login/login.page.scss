@@ -1,0 +1,30 @@
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    height: 400px; // Centra verticalmente
+    padding: 20px;
+}
+
+ion-item {
+    margin-bottom: 20px; // Espaciado entre inputs
+}
+
+ion-card {
+    width: 100%;
+    max-width: 450px; // Tamaño máximo para el card
+}
+
+.login-button {
+    background-color: #dbc0fb;
+    color: black;
+    margin-top: 30px;
+}
