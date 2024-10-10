@@ -13,9 +13,23 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">horaa</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card class="card-hora">
+    <ion-item>
+      <ion-textarea label="Nombre completo" labelPlacement="stacked" placeholder="Ingrese su nombre completo"></ion-textarea>
+    </ion-item>
+      
+    <ion-item>
+      <ion-textarea label="Email" labelPlacement="stacked" placeholder="Ingrese su email"></ion-textarea>
+    </ion-item>
+
+    <p>Cual es el motivo de su visita</p>
+    <ion-list>
+      <ion-item>
+        <ion-select aria-label="motivo de su visita" value="Adoptar">
+          <ion-select-option value="Adoptar">adoptar</ion-select-option>
+          <ion-select-option value="Informacion">Informacion</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>

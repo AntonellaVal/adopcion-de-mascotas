@@ -1,16 +1,86 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>formdaradopcion</ion-title>
+    <ion-title>Formulario para Adopción</ion-title>
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button> 
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">formdaradopcion</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <form (ngSubmit)="enviarFormulario()">
+    
+    <!-- Nombre del animal -->
+    <ion-item>
+      <ion-label position="floating">Nombre del Animal</ion-label>
+      <ion-input formControlName="nombre" required></ion-input>
+    </ion-item>
+
+    <!-- Edad del animal -->
+    <ion-item>
+      <ion-label position="floating">Edad (en años)</ion-label>
+      <ion-input formControlName="edad" type="number" required></ion-input>
+    </ion-item>
+
+    <!-- Especie -->
+    <ion-item>
+      <ion-label>Especie</ion-label>
+      <ion-select formControlName="especie" required>
+        <ion-select-option value="perro">Perro</ion-select-option>
+        <ion-select-option value="gato">Gato</ion-select-option>
+        <ion-select-option value="conejo">Conejo</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Género -->
+    <ion-item>
+      <ion-label>Género</ion-label>
+      <ion-select formControlName="genero" required>
+        <ion-select-option value="macho">Macho</ion-select-option>
+        <ion-select-option value="hembra">Hembra</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Vacunas -->
+    <ion-item>
+      <ion-label>¿El animal tiene vacunas?</ion-label>
+      <ion-select formControlName="tieneVacunas" (ionChange)="cambioVacunas($event)" required>
+        <ion-select-option value="si">Sí</ion-select-option>
+        <ion-select-option value="no">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Detalle de vacunas (solo si tiene) -->
+    <ion-item *ngIf="mostrarVacunas">
+      <ion-label position="floating">¿Qué vacunas tiene?</ion-label>
+      <ion-input formControlName="vacunas"></ion-input>
+    </ion-item>
+
+    <!-- Condición de salud -->
+    <ion-item>
+      <ion-label>¿Tiene alguna condición de salud?</ion-label>
+      <ion-select formControlName="tieneCondicionSalud" (ionChange)="cambioCondicionSalud($event)" required>
+        <ion-select-option value="si">Sí</ion-select-option>
+        <ion-select-option value="no">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Detalle de condición de salud (solo si tiene) -->
+    <ion-item *ngIf="mostrarCondicionSalud">
+      <ion-label position="floating">¿Qué condición de salud tiene?</ion-label>
+      <ion-input formControlName="condicionSalud"></ion-input>
+    </ion-item>
+
+    <!-- Breve historia -->
+    <ion-item>
+      <ion-label position="floating">Breve historia del animal</ion-label>
+      <ion-textarea formControlName="historia"></ion-textarea>
+    </ion-item>
+
+    <!-- Botones -->
+    <ion-button expand="full" type="submit" [disabled]="!formularioAdopcion.valid">Enviar</ion-button>
+    <ion-button expand="full" color="medium" (click)="resetearFormulario()">Cancelar</ion-button>
+  </form>
 </ion-content>
+
+
